@@ -6,9 +6,10 @@
 		"moduleResolution": "node",
 		"outDir": "tsc_output",
 		"resolveJsonModule": true,
-		"target": "esnext"
+		"target": "esnext",
+		"exactOptionalPropertyTypes": false
 	},
 	"exclude": ["node_modules", "coverage"],
-	"extends": "@tsconfig/node16",
+	"extends": "@tsconfig/node18-strictest-esm",
 	"include": ["src", "test"]
 }

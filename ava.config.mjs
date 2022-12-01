@@ -2,7 +2,7 @@ const config = {
 	extensions: {
 		ts: 'module',
 	},
-	files: ['test/**/*.test.ts'],
+	files: ['./src/**/*.test.ts', '!./src/commands/template-command/template-files/*'],
 	nodeArguments: ['--loader=ts-node/esm'],
 };
 

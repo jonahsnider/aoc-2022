@@ -13,3 +13,6 @@ indent_style = space
 
 [*.yaml]
 indent_style = space
+
+[inputs/*.txt]
+insert_final_newline = false
