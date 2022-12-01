@@ -7,17 +7,17 @@ export class Day1 extends Day {
 	solve(input: string): SolutionPair {
 		const solution = {part1: 0, part2: 0} satisfies SolutionPair;
 
-		const clusters = input.split('\n\n').map(group => group.split('\n').map(Number));
+		const rawCalorieGroups = input.split('\n\n');
+		const calorieGroups = rawCalorieGroups.map(rawCalorieGroup => rawCalorieGroup.split('\n').map(Number));
+		const totalCaloriesPerGroup = calorieGroups.map(cluster => cluster.reduce(sum));
 
-		const summed = clusters.map(cluster => cluster.reduce(sum));
+		totalCaloriesPerGroup.sort(Sort.descending);
 
-		summed.sort(Sort.descending);
-
-		assert(summed[0]);
-		assert(summed[1]);
-		assert(summed[2]);
-		solution.part1 = summed[0];
-		solution.part2 = summed[0] + summed[1] + summed[2];
+		assert(totalCaloriesPerGroup[0]);
+		assert(totalCaloriesPerGroup[1]);
+		assert(totalCaloriesPerGroup[2]);
+		solution.part1 = totalCaloriesPerGroup[0];
+		solution.part2 = totalCaloriesPerGroup[0] + totalCaloriesPerGroup[1] + totalCaloriesPerGroup[2];
 
 		return solution;
 	}
