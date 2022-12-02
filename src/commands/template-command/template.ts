@@ -14,15 +14,11 @@ export async function generateTemplateFiles(dayName: string): Promise<TemplateFi
 	const implementationsIndexPath = path.join(PROJECT_ROOT, 'src', 'days', 'implementations', 'index.ts');
 
 	const indexRaw = await readFile(path.join(TEMPLATE_FILES_DIR, 'index.ts'), 'utf8');
-	const part1TestRaw = await readFile(path.join(TEMPLATE_FILES_DIR, 'part1.test.ts'), 'utf8');
-	const part2TestRaw = await readFile(path.join(TEMPLATE_FILES_DIR, 'part2.test.ts'), 'utf8');
-	const actualTestRaw = await readFile(path.join(TEMPLATE_FILES_DIR, 'actual.test.ts'), 'utf8');
+	const indexTestRaw = await readFile(path.join(TEMPLATE_FILES_DIR, 'index.test.ts'), 'utf8');
 	const implementationsIndexRaw = await readFile(implementationsIndexPath, 'utf8');
 
 	const index = replaceDayName(indexRaw, dayName);
-	const part1Test = replaceDayName(part1TestRaw, dayName);
-	const part2Test = replaceDayName(part2TestRaw, dayName);
-	const actualTest = replaceDayName(actualTestRaw, dayName);
+	const indexTest = replaceDayName(indexTestRaw, dayName);
 	const implementationsIndex = `${implementationsIndexRaw.trimEnd()}\nexport * from './${dayName}/index.js';\n`;
 
 	return [
@@ -32,14 +28,8 @@ export async function generateTemplateFiles(dayName: string): Promise<TemplateFi
 		// Solution file
 		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', dayName, 'index.ts'), content: index},
 
-		// Part 1 test file
-		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', dayName, 'part1.test.ts'), content: part1Test},
-
-		// Part 2 test file
-		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', dayName, 'part2.test.ts'), content: part2Test},
-
-		// Actual test file
-		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', dayName, 'actual.test.ts'), content: actualTest},
+		// Solution test file
+		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', dayName, 'part1.test.ts'), content: indexTest},
 
 		// Implementations index file
 		{path: implementationsIndexPath, content: implementationsIndex},
