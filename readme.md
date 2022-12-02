@@ -25,3 +25,10 @@ You can also run `yarn start [...days]` to run only the specified days.
 Run `yarn start benchmark` to benchmark all programs and print their median execution times to the console.
 
 You can also run `yarn start benchmark [...days]` to benchmark only the specified days.
+
+### Solving a new day
+
+1. Generate a new template by running `yarn template <day>`
+2. Paste the puzzle input into the `<day>.txt` file printed to the console
+3. Open the `<day>/index.ts` file printed to the console
+4. Run `yarn dev` to build and test the project in watch mode
