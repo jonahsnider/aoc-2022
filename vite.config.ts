@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference types="vitest" />
 
 // Configure Vitest (https://vitest.dev/config/)
