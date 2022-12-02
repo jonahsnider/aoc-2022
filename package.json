@@ -37,7 +37,7 @@
 		"@jonahsnider/benchmark": "5.0.0",
 		"@jonahsnider/util": "9.0.1",
 		"clipanion": "3.2.0-rc.14",
-		"convert": "4.7.1"
+		"convert": "4.8.0"
 	},
 	"devDependencies": {
 		"@jonahsnider/prettier-config": "1.1.2",
