@@ -1,7 +1,7 @@
 import {describe, assert, it, expect} from 'vitest';
-import {getInput} from '../../../utils/days.js';
+import {getInput} from '../../utils/days.js';
 
-import {Day1} from './index.js';
+import {day1} from './day1.js';
 
 const actualInput = await getInput(1);
 const sampleInput = `1000
@@ -21,19 +21,19 @@ const sampleInput = `1000
 
 describe('Day 1', () => {
 	it('Part 1', () => {
-		const {part1: solution} = new Day1().solve(sampleInput);
+		const {part1: solution} = day1(sampleInput);
 
 		assert.strictEqual(24_000, solution);
 	});
 
 	it('Part 2', () => {
-		const {part2: solution} = new Day1().solve(sampleInput);
+		const {part2: solution} = day1(sampleInput);
 
 		assert.strictEqual(45_000, solution);
 	});
 
 	it('Actual', async () => {
-		const solution = new Day1().solve(actualInput);
+		const solution = day1(actualInput);
 
 		expect(solution).toMatchInlineSnapshot(`
 			{

@@ -1,9 +1,8 @@
 import type {SolutionPair} from './types.js';
 
-export abstract class Day {
-	get skipBenchmarks() {
-		return false;
-	}
+export type SolveFunction = (input: string) => SolutionPair | PromiseLike<SolutionPair>;
 
-	abstract solve(input: string): SolutionPair | PromiseLike<SolutionPair>;
-}
+export type Day = {
+	readonly skipBenchmarks: boolean;
+	readonly solve: SolveFunction;
+};

@@ -13,23 +13,26 @@ const TEMPLATE_FILES_DIR = path.join(PROJECT_ROOT, 'src', 'commands', 'template-
 export async function generateTemplateFiles(dayName: string): Promise<TemplateFile[]> {
 	const implementationsIndexPath = path.join(PROJECT_ROOT, 'src', 'days', 'implementations', 'index.ts');
 
-	const indexRaw = await readFile(path.join(TEMPLATE_FILES_DIR, 'index.ts'), 'utf8');
-	const indexTestRaw = await readFile(path.join(TEMPLATE_FILES_DIR, 'index.test.ts'), 'utf8');
+	const indexRaw = await readFile(path.join(TEMPLATE_FILES_DIR, 'day999.ts'), 'utf8');
+	const indexTestRaw = await readFile(path.join(TEMPLATE_FILES_DIR, 'day999.test.ts'), 'utf8');
 	const implementationsIndexRaw = await readFile(implementationsIndexPath, 'utf8');
 
-	const index = replaceDayName(indexRaw, dayName);
-	const indexTest = replaceDayName(indexTestRaw, dayName);
-	const implementationsIndex = `${implementationsIndexRaw.trimEnd()}\nexport * from './${dayName}/index.js';\n`;
+	const index = replaceDayName(indexRaw, dayName)
+		// Update the import since it's relative
+		.replace('../../../lib/types.js', '../../lib/types.js');
+	const indexTest = replaceDayName(indexTestRaw, dayName) // Update the import since it's relative
+		.replace('../../../utils/days.js', '../../utils/days.js');
+	const implementationsIndex = `${implementationsIndexRaw.trimEnd()}\nexport * from './day${dayName}.js';\n`;
 
 	return [
 		// Input file
 		{path: path.join(PROJECT_ROOT, 'inputs', `${dayName}.txt`), content: ''},
 
 		// Solution file
-		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', dayName, 'index.ts'), content: index},
+		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', `day${dayName}.ts`), content: index},
 
 		// Solution test file
-		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', dayName, 'index.test.ts'), content: indexTest},
+		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', `day${dayName}.test.ts`), content: indexTest},
 
 		// Implementations index file
 		{path: implementationsIndexPath, content: implementationsIndex},

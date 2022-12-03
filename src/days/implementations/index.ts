@@ -1,3 +1,3 @@
-export * from './1/index.js';
-export * from './2/index.js';
-export * from './3/index.js';
+export * from './day1.js';
+export * from './day2.js';
+export * from './day3.js';
