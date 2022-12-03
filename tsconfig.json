@@ -5,6 +5,7 @@
 		"inlineSources": true,
 		"module": "esnext",
 		"moduleResolution": "node",
+		"noUncheckedIndexedAccess": false,
 		"noUnusedLocals": false,
 		"noUnusedParameters": false,
 		"outDir": "tsc_output",

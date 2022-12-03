@@ -13,9 +13,6 @@ export class Day1 extends Day {
 
 		totalCaloriesPerGroup.sort(Sort.descending);
 
-		assert(totalCaloriesPerGroup[0]);
-		assert(totalCaloriesPerGroup[1]);
-		assert(totalCaloriesPerGroup[2]);
 		solution.part1 = totalCaloriesPerGroup[0];
 		solution.part2 = totalCaloriesPerGroup[0] + totalCaloriesPerGroup[1] + totalCaloriesPerGroup[2];
 

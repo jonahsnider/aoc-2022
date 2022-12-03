@@ -1,4 +1,3 @@
-import assert from 'node:assert/strict';
 import {chunk, first, intersection, lines} from '@jonahsnider/util';
 import {Day} from '../../../lib/solution.js';
 import type {SolutionPair} from '../../../lib/types.js';
@@ -42,10 +41,6 @@ export class Day3 extends Day {
 		const rucksacks = lines(input).map(line => Day3.parseRucksack(line));
 
 		for (const [first, second, third] of chunk(rucksacks, 3)) {
-			assert(first);
-			assert(second);
-			assert(third);
-
 			for (const rucksack of [first, second, third]) {
 				const item = Day3.findIntersectionInRucksacks(rucksack.first, rucksack.second);
 				const priority = Day3.priorityForItem(item);
