@@ -29,7 +29,7 @@ export async function generateTemplateFiles(dayName: string): Promise<TemplateFi
 		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', dayName, 'index.ts'), content: index},
 
 		// Solution test file
-		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', dayName, 'part1.test.ts'), content: indexTest},
+		{path: path.join(PROJECT_ROOT, 'src', 'days', 'implementations', dayName, 'index.test.ts'), content: indexTest},
 
 		// Implementations index file
 		{path: implementationsIndexPath, content: implementationsIndex},
