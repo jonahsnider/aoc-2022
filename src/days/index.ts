@@ -5,7 +5,6 @@ export const days: ReadonlyMap<string, Day> = new Map(
 	Object.entries(Days).map(([solveFunctionName, solveFunction]) => [
 		solveFunctionName.slice('day'.length),
 		{
-			skipBenchmarks: false,
 			solve: solveFunction,
 		},
 	]),

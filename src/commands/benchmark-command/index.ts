@@ -20,13 +20,20 @@ export class BenchmarkCommand extends Command {
 		],
 	});
 
+	/** Days to skip during benchmarks. */
+	private static readonly skippedDays = new Set<string>();
+
+	private static shouldBenchmarkDay(dayName: string): boolean {
+		return !BenchmarkCommand.skippedDays.has(dayName);
+	}
+
 	// eslint-disable-next-line new-cap
 	readonly dayNames = Option.Rest();
 
 	private readonly benchmark = new Benchmark();
 
 	async execute() {
-		const dayNames = [...this.resolveDays().entries()].filter(([, day]) => !day.skipBenchmarks).map(([dayName]) => dayName);
+		const dayNames = [...this.resolveDays().entries()].filter(([dayName]) => BenchmarkCommand.shouldBenchmarkDay(dayName)).map(([dayName]) => dayName);
 
 		const results = await this.benchmarkDays(dayNames);
 
@@ -58,7 +65,9 @@ export class BenchmarkCommand extends Command {
 			([dayName, suiteResults]) => [dayName, toDigits(convert(suiteResults.get('solve')!.percentile(50), 'ns').to('ms'), 2)] as const,
 		);
 
-		resultsEntries.push(...[...this.resolveDays()].filter(([, day]) => day.skipBenchmarks).map(([dayName]) => [dayName, Number.POSITIVE_INFINITY] as const));
+		resultsEntries.push(
+			...[...this.resolveDays()].filter(([dayName]) => !BenchmarkCommand.shouldBenchmarkDay(dayName)).map(([dayName]) => [dayName, Number.NaN] as const),
+		);
 
 		resultsEntries.sort(([dayNameA], [dayNameB]) => dayNameA.localeCompare(dayNameB, undefined, {numeric: true}));
 
