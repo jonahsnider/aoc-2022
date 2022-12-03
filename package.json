@@ -29,7 +29,7 @@
 		"start": "node --enable-source-maps .",
 		"dev": "run-p 'test --ui' 'build --watch'",
 		"style": "prettier --check .",
-		"test": "vitest",
+		"test": "vitest run",
 		"test:coverage": "vitest run --coverage"
 	},
 	"prettier": "@jonahsnider/prettier-config",
