@@ -6,7 +6,7 @@ import {Day999} from './index.js';
 const actualInput = await getInput(999);
 const sampleInput = `REPLACEME`;
 
-describe('Day 1', () => {
+describe('Day 999', () => {
 	it('Part 1', () => {
 		const {part1: solution} = new Day999().solve(sampleInput);
 
