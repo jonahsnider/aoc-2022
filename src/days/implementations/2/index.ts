@@ -1,5 +1,3 @@
-/* eslint-disable default-case */
-
 import {lines} from '@jonahsnider/util';
 import {Day} from '../../../lib/solution.js';
 import type {SolutionPair} from '../../../lib/types.js';
