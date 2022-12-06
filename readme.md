@@ -31,4 +31,5 @@ You can also run `yarn start benchmark [...days]` to benchmark only the specifie
 1. Generate a new template by running `yarn template <day>`
 2. Paste the puzzle input into the `<day>.txt` file printed to the console
 3. Open the `<day>/index.ts` file printed to the console
-4. Run `yarn dev` to build and test the project in watch mode
+4. Run `yarn build:dev` to build the project in watch mode
+5. Run `yarn test:dev` to run the tests in watch mode

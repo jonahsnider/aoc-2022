@@ -25,11 +25,12 @@
 	"main": "./tsc_output/index.js",
 	"scripts": {
 		"build": "tsc",
+		"build:dev": "tsc --watch",
 		"lint": "xo",
 		"start": "node --enable-source-maps .",
-		"dev": "run-p 'test --ui' 'build --watch'",
 		"style": "prettier --check .",
 		"test": "vitest run",
+		"test:dev": "vitest --ui",
 		"test:coverage": "vitest run --coverage"
 	},
 	"prettier": "@jonahsnider/prettier-config",
