@@ -11,7 +11,7 @@ type DaySolution = {
 	part2: number | string;
 };
 
-const MAX_STRING_SOLUTION_LENGTH = 7;
+const MAX_STRING_SOLUTION_LENGTH = 10;
 
 export class RunCommand extends Command {
 	static override readonly paths = [['run'], ['r'], Command.Default];
