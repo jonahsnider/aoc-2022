@@ -12,13 +12,13 @@ describe('Day 2', () => {
 	it('Part 1', () => {
 		const {part1: solution} = day2(sampleInput);
 
-		assert.strictEqual(15, solution);
+		assert.strictEqual(solution, 15);
 	});
 
 	it('Part 2', () => {
 		const {part2: solution} = day2(sampleInput);
 
-		assert.strictEqual(12, solution);
+		assert.strictEqual(solution, 12);
 	});
 
 	it('Actual', async () => {

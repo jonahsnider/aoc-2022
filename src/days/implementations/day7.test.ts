@@ -32,13 +32,13 @@ describe('Day 7', () => {
 	it('Part 1', () => {
 		const {part1: solution} = day7(sampleInput);
 
-		assert.strictEqual(95_437, solution);
+		assert.strictEqual(solution, 95_437);
 	});
 
 	it('Part 2', () => {
 		const {part2: solution} = day7(sampleInput);
 
-		assert.strictEqual(24_933_642, solution);
+		assert.strictEqual(solution, 24_933_642);
 	});
 
 	it.skip('Actual', async () => {

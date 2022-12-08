@@ -10,13 +10,13 @@ describe('Day 999', () => {
 	it('Part 1', () => {
 		const {part1: solution} = day999(sampleInput);
 
-		assert.strictEqual(123, solution);
+		assert.strictEqual(solution, 123);
 	});
 
 	it.skip('Part 2', () => {
 		const {part2: solution} = day999(sampleInput);
 
-		assert.strictEqual(123, solution);
+		assert.strictEqual(solution, 123);
 	});
 
 	it.skip('Actual', async () => {
