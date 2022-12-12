@@ -6,3 +6,4 @@ export * from './day6.js';
 export * from './day7.js';
 export * from './day8.js';
 export * from './day9.js';
+export * from './day12.js';
