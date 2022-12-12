@@ -143,8 +143,6 @@ export function day12(input: string): SolutionPair {
 	const part1Route = aStar(self, goal, false);
 	const part2Route = aStar(self, goal, true);
 
-	const routeArray = [...part2Route];
-
 	// Don't count the starting point
 	solution.part1 = part1Route.size - 1;
 	// Don't count the starting point or the "a" height point we "teleported" to
