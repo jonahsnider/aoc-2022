@@ -145,21 +145,10 @@ export function day12(input: string): SolutionPair {
 
 	const routeArray = [...part2Route];
 
-	// Trim the beginning of the route to the first non-flat point
-	const lastNonFlatPointIndex = routeArray.findIndex((point, index) => {
-		const previousPoint = routeArray[index - 1];
-
-		if (!previousPoint) {
-			return false;
-		}
-
-		return point.height !== previousPoint.height;
-	});
-
-	const trimmedRoute: Route = new Set(routeArray.slice(lastNonFlatPointIndex - 1));
-
+	// Don't count the starting point
 	solution.part1 = part1Route.size - 1;
-	solution.part2 = trimmedRoute.size - 1;
+	// Don't count the starting point or the "a" height point we "teleported" to
+	solution.part2 = part2Route.size - 2;
 
 	return solution;
 }
